@@ -1,35 +1,35 @@
 import React from "react";
-import { Tabs, Tab, Avatar, AppBar, Grid } from "@mui/material";
+import { Tabs, Tab, Avatar, AppBar, Grid, Toolbar, Box } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import logo from '../images/logomaterial.png';
 import { useLocation } from 'react-router-dom';
 
-const styles = (theme => ({
-    navbar: {
-        zIndex: theme.zIndex.drawer + 1,
-        marginLeft: '173px',
-    },
-}))
-
 const Navbar = (props) => {
+
+    const {drawerWidth} = props
 
     const location = useLocation().pathname
 
     return (
-        <AppBar position="sticky" style={styles.navbar}>
-                <Grid container direction="row-reverse" justify="flex-start" alignItems="center" spacing={1}>
-                    <Grid item m={2} pr={1}>
+        <AppBar position="fixed"
+            sx={{
+                width: {sm: `calc(100% - ${drawerWidth}px)`},
+                ml: {sm: `${drawerWidth}px`},
+            }}
+        >
+            <Toolbar>
+                <Grid container direction="row-reverse" alignItems="center" >
+                    <Box  pl={2}>
                         <Avatar src={logo}/>
-                    </Grid>
-                    <Grid item>
-                        <Tabs value={location} centered>
-                            <Tab label="0. Home" value="/" to="/" component={NavLink}/>
-                            <Tab label="1. About" value="/about" to="/about" component={NavLink}/>
-                            <Tab label="2. Experience" value="/experience" to="/experience" component={NavLink}/>
-                            <Tab label="3. Aviation" value="/aviation" to="/aviation" component={NavLink}/>
-                        </Tabs>
-                    </Grid>
+                    </Box>
+                    <Tabs value={location} centered>
+                        <Tab label="0. Home" value="/" to="/" component={NavLink}/>
+                        <Tab label="1. About" value="/about" to="/about" component={NavLink}/>
+                        <Tab label="2. Experience" value="/experience" to="/experience" component={NavLink}/>
+                        <Tab label="3. Aviation" value="/aviation" to="/aviation" component={NavLink}/>
+                    </Tabs>
                 </Grid>
+            </Toolbar>
         </AppBar>
     )
 }

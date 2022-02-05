@@ -8,7 +8,6 @@ import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/s
 import { CssBaseline, Toolbar, Box } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import About from './components/About';
-import "./components/mainContent.css";
 import Aviation from './components/Aviation';
 
 const drawerWidth = 172

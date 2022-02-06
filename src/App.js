@@ -1,14 +1,10 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
-import Home from './components/Home';
-import Experience from './components/Experience';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
-import { CssBaseline, Toolbar, Box } from '@mui/material';
+import { CssBaseline, Box } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import About from './components/About';
-import Aviation from './components/Aviation';
+import MainContent from './components/MainContent';
 
 const drawerWidth = 172
 
@@ -28,20 +24,11 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Box sx={{display: "flex"}}>
           <CssBaseline/>
-          <Navbar drawerWidth={drawerWidth}/>
-          <Sidebar drawerWidth={drawerWidth}/>
-          <Box component="main" sx={{flexGrow: 1, width: {sm: `calc(100% - ${drawerWidth}px)`, ml: {sm: `${drawerWidth}px`}}}}>
-            <Toolbar/>
-            <Routes>
-              <Route path="/" element={<Home />}/>
-              <Route path="/about" element={<About />}/>
-              <Route path="/experience" element={<Experience />}/>
-              <Route path="/aviation" element={<Aviation />}/>
-            </Routes>
+          <Navigation drawerWidth={drawerWidth}/>
+          <Box sx={{display:"flex", justifyContent: "flex-end"}}>
+            <MainContent drawerWidth={drawerWidth}/>
           </Box>
-        </Box>
       </ThemeProvider>
     </BrowserRouter>
   );

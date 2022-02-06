@@ -17,10 +17,10 @@ const Experience = () => {
             <Grid item xs='auto' p={2}>
                 <Header text="2. Experience"/>
                 <Paper sx={{ flexGrow: 1, display: 'flex', maxWidth: 'md'}}>
-                    <Tabs orientation="vertical" value={value} onChange={handleChange} sx={{ minWidth: '168px' }}>
-                        <Tab label="Service Alberta"/>
-                        <Tab label="EvMware"/>
-                        <Tab label="University of Alberta"/>
+                    <Tabs orientation="vertical" value={value} onChange={handleChange} sx={{minWidth: '90px', borderRight: 1, borderColor: "divider"}}>
+                        <Tab wrapped label="Service Alberta"/>
+                        <Tab wrapped label="EvMware"/>
+                        <Tab wrapped label="University of Alberta"/>
                     </Tabs>
                     <ExperiencePanel value={value} index={0}>
                         <Typography variant="h6">

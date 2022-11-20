@@ -15,7 +15,7 @@ function App() {
     () =>
       responsiveFontSizes(createTheme({
         palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
+          mode: prefersDarkMode ? 'dark' : 'dark',
         },
       })),
     [prefersDarkMode],

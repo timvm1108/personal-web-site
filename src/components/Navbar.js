@@ -48,13 +48,13 @@ const Navbar = (props) => {
                     <Box pl={2}>
                         <Avatar src={logo}/>
                     </Box>
-                    <Tabs value={location} variant="scrollable" sx={{display: {xs: "none", sm: "block"}}}>
+                    <Tabs variant="scrollable" scrollButtons={false} value={location} sx={{display: {xs: "none", sm: "block"}}}>
                         <Tab label="0. Home" value="/" to="/" component={NavLink}/>
                         <Tab label="1. About" value="/about" to="/about" component={NavLink}/>
                         <Tab label="2. Experience" value="/experience" to="/experience" component={NavLink}/>
                         <Tab label="3. Aviation" value="/aviation" to="/aviation" component={NavLink}/>
                     </Tabs>
-                    <Button onClick={handleClick} sx={{display: {xs: "block", sm: "none"}}}>
+                    <Button variant="contained" onClick={handleClick} sx={{display: {xs: "block", sm: "none"}}}>
                         {locations[location]}
                     </Button>
                     <Menu open={open} anchorEl={anchorElement} onClose={handleClose}>
